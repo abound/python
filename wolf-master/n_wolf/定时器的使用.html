@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.3.1.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            margin: 200px auto;
+            height: 50px;
+            width: 400px;
+            border: 1px solid #ccc;
+            border-radius: 20%;
+        }
+        
+        .content{
+            background-color: red;
+            width: 400px;
+            height: 50px;
+        }
+        input{
+            background: red;
+            margin-left: 400px;
+        }
+        p{
+            margin-left: 300px;
+        }
+    </style>
+    <script>
+          $(function(){
+                var time;
+                $(".start").click(function(){
+                     time=setInterval(function(){
+                        var length=$(".content").width();
+                        length-=1;
+                        $(".content").css("width",length);
+                        $("p").text(length);
+                    },100)
+                })
+                $(".stop").click(function(){
+                    clearInterval(time);
+                })
+           });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="content"></div>
+    </div>
+    <input type="button" value="start" class="start">
+    <input type="button" value="stop" class="stop">
+    <p>0</p>
+</body>
+</html>

@@ -1,0 +1,83 @@
+
+#div1{
+    
+    color: aquamarine;
+    background-color: azure;
+    
+}
+#div2{
+    
+    color:brown;
+    background-color: cyan;
+}
+#div3{
+    
+    background-color:darkgreen;
+
+}
+
+#outer{
+    height: 250px;
+    color: blue;
+    background-color:blueviolet;
+
+}
+ #outer .p1{
+    color: brown;
+ }
+ .div1>p{
+    background-color: aqua;
+    color: deeppink;
+}
+
+.main2>div{
+    background-color: blueviolet;
+    color: chartreuse;
+}
+
+/* >表示该标签的子标签，而不包括该标签 */
+
+.main3{
+    background-color: red;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+
+}
+
+.outer1{
+    background-color:rebeccapurple;
+}
+
+.menu1{
+    height: 50px;
+    width: 100px;
+    color: gold;
+    float: left;
+}
+.menu2{
+    height: 50px;
+    width: 100px;
+    color: gold;
+    float: left;
+    clear: both;
+}
+.clear{
+    clear: both;
+}
+
+
+.bottom{
+    height: 50px;
+    text-align: center;
+    line-height: 50px; 
+    background-color:#cc3399;
+
+}
+
+.head-box{
+    background-color: #2459a2;
+    height: 44px;
+    width: 100%;
+    position: fixed;
+}

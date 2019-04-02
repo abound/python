@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="index2.css">
+   
+   
+    <script src="jquery-3.3.1.min.js"></script>
+    
+<script>
+        $(function(){
+            $(".ruler").click(function () { 
+            $(".rule").fadeIn(100);
+
+            });
+            $(".close").click(function(){
+            $(".rule").fadeOut(100);
+
+            });
+            $(".start").click(function(){
+                $(this).fadeOut(100);
+                progressHandler();
+                startwolfAnimation();
+            });
+            $(".rebegin").click(function(){
+                $(".mask").fadeOut(100);
+                progressHandler();
+                startwolfAnimation();
+                
+            })
+            function progressHandler(){
+                $(".progress").css("width","180px");
+                var timer =setInterval(function(){
+                    var progerssWidth=$(".progress").width();
+                    progerssWidth-=1;
+                    $(".progress").css({
+                        width:progerssWidth
+                    })
+                    if(progerssWidth ==0){
+                        $(".mask").stop().fadeIn(100);
+                        stopwolfAnimation();
+                    }
+                },100)
+            }
+            var wolfTimer;
+            function startwolfAnimation(){
+                var wolf_1=['images/h0.png','images/h1.png','images/h2.png','images/h3.png',
+                'images/h4.png','images/h5.png','images/h6.png','images/h7.png','images/h8.png',
+                'images/h9.png'];
+                var wolf_2=['images/x0.png','images/x1.png','images/x2.png','images/x3.png',
+                'images/x4.png','images/x5.png','images/x6.png','images/x7.png','images/x8.png',
+                'images/x9.png'];
+                var arrayPosition = [
+                {left:"100px",top:"115px"},
+                {left:"20px",top:"160px"},
+                {left:"190px",top:"142px"},
+                {left:"105px",top:"193px"},
+                {left:"19px",top:"221px"},
+                {left:"202px",top:"212px"},
+                {left:"120px",top:"275px"},
+                {left:"30px",top:"295px"},
+                {left:"209px",top:"297px"}
+                ];
+                var wolftype=Math.round(Math.random())==0 ? wolf_1:wolf_2;
+                var posIndex=Math.round(Math.random()*8);
+                var $wolfImage=$("<img src='' class='wolfImage'>");
+                $wolfImage.css({
+                    position:"absolute",
+                    left:arrayPosition[posIndex].left,
+                    top:arrayPosition[posIndex].top
+                });
+
+                window.wolfIndex=0;
+                window.wolfIndexend=5;
+                wolfTimer=setInterval(function(){
+                if(wolfIndex>wolfIndexend){
+                    $wolfImage.remove();
+                    clearInterval(wolfTimer);
+                    startwolfAnimation();
+                }
+                $wolfImage.attr("src",wolftype[wolfIndex]);
+                wolfIndex++;
+                },300)
+                $(".container").append($wolfImage);
+
+                gamerule($wolfImage);
+            }
+            function stopwolfAnimation(){
+                $(".wolfImage").remove();
+                clearInterval(wolfTimer);
+
+            }
+            function gamerule($wolfImage) {
+                $wolfImage.one("click",function(){
+                    window.wolfIndex=5;
+                    window.wolfIndexend=9;
+                  var $src=$(this).attr("src");//获取src的值
+                  var flag=$src.indexOf("h") >=0;
+                  if(flag){
+                      $(".score").text(parseInt($(".score").text())+10);//用于更改和进行覆盖。
+                  }else{
+                     $(".score").text(parseInt($(".score").text())-10);
+                  }
+                });
+                
+            }
+            
+        });
+</script>
+
+</head>
+<body>
+<div class="container">
+    <h1 class="score">0</h1>
+    <div class="progress"></div>
+    <button class="start">开始游戏</button>
+    <div class="ruler">游戏规则</div>
+    <div class="rule">
+        <p>游戏规则：</p>
+        <p>1.游戏时间</p>
+        <p>2.拼手速，殴打小灰灰-10分</p>
+        <p>3.拼手速，殴打灰太狼+10分</p>
+        <a href="#" class="close">[关闭]</a>
+    </div>
+    <div class="mask">
+        <h1>GAME OVER</h1>
+        <button class="rebegin">重新开始</button>
+    </div>
+</div>
+    
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.3.1.min.js"></script>
+    <span class="span" name="it666"></span>
+
+    <script>
+        $(function(){
+
+
+            //如果是获取，无论多少元素，都只会返回第一个元素指定的属性节点的值；
+            //如果是设置：找到多少就会设置多少个元素;
+            console.log($("span").attr("class"));
+
+
+
+            console.log($("span").attr("class","box"));
+            console.log($("span").attr("123","alex"));
+
+
+            console.log($("span").removeAttr("class"));
+
+
+
+        });
+    
+    
+    </script>
+</head>
+<body>
+    <span class="span" name="it666"></span>
+    <span class="span" name="it666"></span>
+    <span class="span" name="it666"></span>
+    <span class="span" name="it666"></span>
+
+</body>
+</html>

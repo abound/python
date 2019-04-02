@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+    .father{
+        height: 200px;
+        width: 200px;
+        background: blue;
+        position: relative;
+        border: 50px solid #000;
+    }
+    .son{
+        /* //当css样式为绝对定位（position:absolute; ）时top 属性可以指定与其最近一个具有定位设置的父对象顶边的位置 */
+        position: absolute;
+        top: 50px;
+        height: 100px;
+        width: 100px;
+        background: red;
+        left: 50px;
+    }
+</style>
+
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+          $(function(){
+                
+            // $(".father").click(function(){
+
+            //     alert("123");
+            // })
+
+            // $(".son").click(function(){
+
+            //     alert("123");
+            //     return false;
+            //     })
+            // //triggerHandler不会触发事件冒泡
+            // //trigger触发事件冒泡
+            // $(".father").trigger("click");
+            // $(".father").triggerHandler("click");
+            $(".son").on("myClick",function(){
+                alert("son");
+            });
+            $(".son").trigger("myClick");
+    
+           });
+    </script>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+
+    </div>
+</body>
+</html>

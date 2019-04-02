@@ -1,0 +1,21 @@
+
+<?xml version="1.0" encoding="utf-8" ?>
+
+
+<products>
+    <nz>
+        <title>甜美女装</title>
+        <des>人见人爱</des>
+        <image>2.jpg</image>
+    </nz>
+    <bb>
+        <title>奢华女包</title>
+        <des>送女友</des>
+        <image>1.jpg</image>
+    </bb>
+    <tx>
+        <title>拖鞋</title>
+        <des>送女友</des>
+        <image>3.jpg</image>
+    </tx>
+</products>

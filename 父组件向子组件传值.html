@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+     <script src="vue.min.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <!-- 父组件，可以在引用子组件的时候，通过属性绑定（v-bind）的形式，把需要传递给子组件的
+        数据，以属性绑定的形式，传递给子组件内部，供子组件使用 -->
+    <com1 v-bind:parentmsg="msg" @func="getmessage"></com1>
+    </div>
+    <template id="com1">
+        <div>
+            <h1>这是子组件 ---   {{parentmsg}}</h1>
+            <input type="button" value="想父组件传递消息" @click="sendmsg">
+        </div>
+    </template>
+        <script>
+        var com1={
+            template:'#com1',
+            data(){
+                return {
+                    msg:'你拿走吧',
+
+                }
+            },
+            props:['parentmsg'],
+            methods: {
+                sendmsg(){
+                    this.$emit('func',this.msg);
+                }
+            },
+        }
+        var vm=new Vue ({
+            el:'#app', 
+            data:{//子组件中的data数据，是子组件私有的，比如通过ajax请求回来的数据
+                //数据可读可写
+                msg:'123 啊-父组件中的数据',
+                ha:'',
+            },
+            methods:{
+                getmessage(data){
+                    this.ha=data;
+                    console.log(this.ha);
+                     
+
+                }
+            },
+          
+            components:{
+                com1
+                //经过演示，发现子组件中，默认无法访问到父组件的data上的数据和methods中的方法
+            }
+     });
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .content{
+            height: 161px;
+            width:  600px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+        }
+        ul{
+            list-style: none;
+            width: 1800px;
+            height: 161px;
+            background: #ccc;
+        }
+        img{
+            height: 161px;
+            width: 300px;
+        }
+        ul>li{
+            float: left;
+        }
+
+    
+    </style>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        $(function(){
+            var offset=0;
+            var timer=0;
+            function autopaly(){
+               
+            timer=setInterval(function(){
+                offset-=10;
+                if(offset<=-1200)
+                {
+                    offset=0;
+                }
+                $("ul").css("marginLeft",offset);
+            
+            },100)
+
+
+            }
+            autopaly();
+            $("li").hover(function(){
+                clearInterval(timer);
+                $(this).siblings().fadeTo(100,0.5);
+                $(this).fadeTo(100,1);
+                
+            },function(){
+                autopaly();
+                $("li").fadeTo(100,1);
+            });
+  
+            // $("li").hover(function(){
+            //     clearInterval(timer);
+            //     $(this).siblings().fadeTo(100,0.5);
+            //     $(this).fadeTo(100,1);
+            // },function(){
+            //     autoplay();
+            //     $("li").fadeTo(100,1);
+            // });
+         });
+  </script>
+</head>
+<body>
+    <div class="content">
+        <ul>
+            <li><img src="1.1.png"></li>
+            <li><img src="1.2.png"></li>
+            <li><img src="1.3.png"></li>
+            <li><img src="1.4.png"></li>
+            <li><img src="1.1.png"></li>
+            <li><img src="1.2.png"></li>
+        </ul>
+    </div>
+</body>
+</html>

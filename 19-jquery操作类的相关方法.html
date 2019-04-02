@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .div0{
+            margin-bottom: 10px;
+        }
+        .div1{
+            height: 100px;
+            width: 100px;
+            background: red;
+        }
+        .div2{
+            border: 10px solid blue;
+        }
+
+
+
+    </style>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+
+        $(function(){
+        var btn=document.getElementsByTagName("button");
+        btn[0].onclick=function(){
+            
+            $(".sss").addClass("div1 div2");
+            
+        
+        }
+        btn[1].onclick=function(){
+            $(".sss").removeClass("div1 div2");
+        }
+        btn[2].onclick=function(){
+            $(".sss").toggleClass("div1 div2");
+        }
+
+        })
+        
+
+    </script>
+</head>
+<body>
+  
+    <button> 添加类</button>
+    <button> 删除类</button>
+    <button> 修改类</button>
+
+    <div class="sss"></div>
+</body>
+
+</html>

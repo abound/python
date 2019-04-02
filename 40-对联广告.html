@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+         .duilian{
+             height: 200px;
+             width: 80px;
+             border: 1px solid #ccc; 
+             margin-top: 200px;
+             background-color: blue;
+             
+            
+                
+         }
+         .duilian_left{
+             float: right;
+             position: fixed;
+             left: 0;
+            
+             
+         }
+         .duilian_right{
+             float: left;
+             position: fixed;
+             right: 0;
+             
+         }
+         .duilian_close{
+             position: absolute;
+             padding-top: 150px;
+         }
+         .current{
+             display: none;
+         }
+    
+    </style>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+          $(function(){
+                $(window).scroll(function(){
+                    var offset=$("html,body").scrollTop();
+                    if(offset>200){
+                        // $(".duilian").show(1000);
+                        $(".duilian").slideDown(1000);
+
+                    }else
+                    {
+                        // $(".duilian").hide(1000);
+                        $(".duilian").slideUp(1000);
+                    }
+                });
+    
+    
+           });
+    </script>
+</head>
+<body>
+<div> 
+    <div class="duilian current duilian_left">
+        <div class="duilian_con">对联的内容</div>
+        <a href="#" class="duilian_close">X关闭</a>
+    </div>
+    <div class="duilian current duilian_right">
+        <div class="duilian_con">对联的内容</div>
+        <a href="#" class="duilian_close">X关闭</a>
+    </div>
+</div>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br><br><br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br><br>
+<br>
+
+</body>
+</html>

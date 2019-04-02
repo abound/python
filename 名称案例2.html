@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+            <!-- @keyup="getname" -->
+        <input type="text" v-model="firstname">+
+        <input type="text" v-model="lastname" >=
+        <input type="text" v-model="name">
+        <p>{{ name }}</p>
+    </div>
+    <script>
+        var vm=new Vue ({
+            el:'#app', 
+            data:{
+                firstname:'',
+                lastname:'',
+                // name:'',
+            },
+            methods:{},
+                // getname(){
+                //     // this.name=this.firstname+'.'+this.lastname;
+                // },
+                // watch: {
+                //     firstname:function(newVal,oldVal){
+                //         // this.name=this.firstname+this.lastname;
+
+                //         this.name=newVal+'.'+this.lastname;
+                //     },
+                //     lastname:function(newVal,oldVal){
+                //         // this.name=this.firstname+this.lastname;
+
+                //         this.name=this.firstname+'.'+newVal ;
+                //     }
+                // },
+            computed: {
+                'name':function(){
+                        return this.firstname+this.lastname;
+                }
+            },
+        
+     });
+    </script>
+</body>
+</html>

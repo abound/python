@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+     <script src="vue.min.js"></script>
+
+</head>
+<body>
+    <div id="app"> 
+            <com2 @func="show"></com2>
+    </div>
+        <!-- 父组件，可以在引用子组件的时候，通过属性绑定（v-bind）的形式，把需要传递给子组件的
+        数据，以属性绑定的形式，传递给子组件内部，供子组件使用 -->
+   
+
+    <template id="temp1">
+        <div>
+            <h1>这是一个子组件的按钮</h1>
+            <input type="button" value="这是子组件的按钮，点击它触发父组件传递过来的func 方法" @click="myclick">
+        </div>
+     
+</template>
+    
+        <script>
+            var com2={
+                template:'#temp1',
+                methods: {
+                    myclick(){
+                        //当点击子组件按钮时，如何触发父组件传递过来的fun方法，并调用这个方法？
+                        this.$emit('func');
+                    // console.log('ok');
+                    
+                    }
+                },
+            }
+        
+        var vm=new Vue ({
+            el:'#app', 
+            data:{//子组件中的data数据，是子组件私有的，比如通过ajax请求回来的数据
+                //数据可读可写
+                msg:'123 啊-父组件中的数据'
+            },
+            methods:{
+                show(){
+                    console.log('调用父组件身上的show方法');
+                    
+                }
+            },
+            components:{
+                com2
+                //经过演示，发现子组件中，默认无法访问到父组件的data上的数据和methods中的方法
+            }
+     });
+    </script>
+</body>
+</html>

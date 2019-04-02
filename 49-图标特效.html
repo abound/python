@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        ul{
+            height: 250px;
+            width: 400px;
+            border: 1px solid #ccc;
+            margin: 200px auto; 
+
+        }
+        ul>li{
+            list-style: none;
+            height: 50px;
+            width: 100px;
+            float: left;
+            margin-top: 50px;
+            line-height: 50px;
+            text-align: center;
+            /* overflow: hidden; */
+        }
+        ul>li>span{
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-color: red;
+        }
+    </style>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+          $(function(){
+            
+
+            $("li").mouseenter(function(){
+
+                $(this).children("span").animate({
+                    top:-50
+                },1000,function(){
+                    // $(this).css("top","50px");
+                    // $(this).animate({
+                    //     top:0
+                    // },1000);
+                })
+            }) ;
+    
+    
+           });
+    </script>
+</head>
+<body>
+    <ul>
+        <li><span></span><p>百度</p></li>
+        <li><span></span><p>百度</p></li>
+        <li><span></span><p>百度</p></li>
+        <li><span></span><p>百度</p></li>
+        <li><span></span><p>百度</p></li>
+        <li><span></span><p>百度</p></li>
+        <li><span></span><p>百度</p></li>
+        <li><span></span><p>百度</p></li>
+    </ul>
+</body>
+</html>

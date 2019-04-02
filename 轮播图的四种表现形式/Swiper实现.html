@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet"  href="Swiper-3.4.2\dist\css\swiper.min.css">
+    <script src="Swiper-3.4.2\dist\js\swiper.min.js"></script>
+    <title>Document</title>
+    <script src="jquery-3.3.1.min.js"></script>
+    <style>
+         .swiper-container{
+            width: 600px;
+            height: 161px;
+            border: 1px solid #ccc;
+        }
+        img{
+            height: 161px;
+            width: 600px;
+        }
+    
+    </style>
+ <script>
+     window.onload = function() {
+      var mySwiper = new Swiper ('.swiper-container', {
+        // 轮播图的方向，也可以是vertical方向
+        direction:'horizontal',
+        
+        // effect : 'cube',
+        // cube: {
+        // slideShadows: true,
+        // shadow: true,
+        // shadowOffset: 100,
+        // shadowScale: 0.6
+        // },
+        // effect : 'flip',
+        flip: {
+                    slideShadows : true,
+                    limitRotation : true,
+                },
+        // 播放速度
+        loop: true,
+
+        // 自动播放时间
+        autoplay:1000,
+
+        // 播放的速度
+        speed:2000,
+        
+        // 如果需要分页器，即下面的小圆点
+        pagination: '.swiper-pagination',
+        
+        // 如果需要前进后退按钮
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+　　　　　
+
+　　　　　　// 这样，即使我们滑动之后， 定时器也不会被清除
+　　　　  autoplayDisableOnInteraction : false,
+        
+        // 如果需要滚动条
+       
+      });
+            /*鼠标移入停止轮播，鼠标离开 继续轮播*/
+  
+        $('.swiper-slide').onmouseenter = function () {
+            mySwiper.stopAutoplay();
+      };
+      $('.swiper-slide').onmouseleave = function () {
+            mySwiper.startAutoplay();
+      }
+    }        
+</script>
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="1.1.png"></div>
+        <div class="swiper-slide"><img src="1.2.png"></div>
+        <div class="swiper-slide"><img src="1.3.png"></div>
+        <div class="swiper-slide"><img src="1.4.png"></div>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+    <!-- 如果需要导航按钮 -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <!-- 如果需要滚动条 -->
+    <div class="swiper-scrollbar"></div>
+    
+</div>
+</body>
+</html>

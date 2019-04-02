@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+        <style>
+            #lab{
+              
+                visibility: hidden;
+            }
+        </style>
+    <script>
+        // function test1(){
+        //     document.getElementById("lab").style.visibility="visible";
+        // }
+        function test(){
+            var content=document.getElementById("user").value;
+          
+            reg=/^\d/;
+            if(!reg.test(content)){
+                
+                document.getElementById("lab").style.visibility="visible";
+            }else{
+                document.getElementById("lab").style.visibility="hidden"
+            }
+            
+        }
+    
+    </script>
+</head>
+<body>
+    <form id="ico" method="POST">
+            <span>用户名：</span><input id="user" onblur="test()" onfocus="test1()" type="text" name="username">
+            <div id="lab">请以数字开头输入</div>
+        </form>
+</body>
+</html>

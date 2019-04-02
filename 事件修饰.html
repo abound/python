@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    
+    <title>Document</title>
+    <style>
+        .inner{
+            height: 150px;
+            background-color:darkcyan;
+        }
+    
+    </style>
+   <script src="vue.min.js"></script>
+ 
+</head>
+<body>
+    <div id="app">
+        <div class="inner" @click="handle">
+            <input type="button" value="戳他" @click.stop="handle2">
+        </div >
+    </div>
+    <script>
+            var vem=new Vue({
+                el: '#app',
+                data: {
+        
+                },
+                methods: {
+                    handle2(){
+                        console.log("111");
+                    },
+                    handle(){
+                        console.log("222");
+                        
+                    }
+                  
+                }
+                
+                })
+            </script>
+  
+</body>
+</html>

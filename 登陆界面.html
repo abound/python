@@ -1,0 +1,164 @@
+<html>
+<script type="text/javascript">
+function inUser(){
+	username_mess.style.visibility="visible";
+}
+function outUser(){
+        //获取name 为 usesrname 的文本
+	    u=f1.username.value;
+ 
+	    f1.username.style.border="1px solid AAAAAA";
+	    if(u==""){
+	    	username_mess.style.visibility="hidden";
+	    	return;
+    	}
+        //正则表达式
+    	reg=/.{4,20}/;
+    
+		if(!reg.test(u)){
+			username_mess.innerHTML="用户名长度只能在4-20位字符之间";
+			username_mess.style.color="red";
+			f1.username.style.color="red";
+			f1.username.style.border="1px solid red";
+			username_ok.style.visibility="hidden";
+			return;
+		}
+		reg=/^[\u4e00-\u9fa5 \w-]{4,20}$/;
+		if(reg.test(u)){
+			username_ok.style.visibility="visible";
+			username_mess.innerHTML="";
+			f1.username.style.color="black";
+		}else{
+			username_mess.innerHTML="用户名只能由中文、英文、数字及'_'、'-'组成";
+			username_mess.style.color="red";
+			f1.username.style.color="red";
+			f1.username.style.border="1px solid red";
+			username_ok.style.visibility="hidden";
+		}
+	}
+function inMail(){
+	mail_mess.style.visibility="visible";
+}
+function outMail(){
+	v=f1.mail.value;
+	f1.mail.style.border="1px solid AAAAAA";
+	if(v==""){
+		mail_mess.style.visibility="hidden";
+		return;
+	}
+	reg=/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+	if(reg.test(v)){
+		mail_ok.style.visibility="visible";
+		mail_mess.innerHTML="";
+		f1.mail.style.color="black";
+	}else{
+		//更改id mail_mess 的文字
+		mail_mess.innerHTML="请输入正确的邮箱地址，例如：X@X.X";
+		//设置id mail_mess 字体的颜色
+		mail_mess.style.color="red";
+		//设置 id 为f1 里的  name 为  mail 文本框 内的文字颜色 
+		f1.mail.style.color="red";
+		//设置文本框颜色以及框的大小
+		f1.mail.style.border="1px solid red";
+		mail_ok.style.visibility="hidden";
+	}
+	}
+</script>
+ 
+<!-- 
+以下为 class 标签的 应用函数	+++
+ -->
+<style type="text/css">
+.label{
+	position:absolute  ;
+	right:70%;
+}
+ 
+.fi{
+	position:relative  ;
+	left:30%;
+}
+.clr{
+	height:20px ;
+	color:AAAAAA;
+	font-size:12px;
+	visibility:hidden;
+}
+ 
+.s{
+	font-weight:lighter ;
+	color:red;
+}
+ 
+.text{
+	font-family:宋体;
+	width:200px;
+}
+ 
+.v{
+	color:cccccc;
+	font-size:12px ;
+}
+ 
+a{
+	font-size:12px ;
+}
+ 
+.btn-img{
+	position:relative  ;
+	left:30%;
+}
+.ok{
+	background-image:url('ok.jpg');
+	width:17px;
+	height:16px;
+	visibility:hidden;
+}
+ 
+</style>
+<body>
+	<form id="f1">
+   			<div class="label"><b class="s">1*</b>用户名：</div>
+	        <div class="fi">
+               		<input type="text" name="username" class="text" tabindex="1" onFocus="inUser()" onBlur="outUser()"/><label id="username_ok" class="ok"><img src="ok.jpg" width=17px height=16px/></label>
+<br/><div id="username_mess" class="clr">4-20位字符，可由中文、英文、数字及"_"、"-"组成</div>
+			</div>
+ 
+            <div class="label"><b class="s">*</b>设置密码：</div>
+	        <div class="fi">
+                	<input type="password" name="pwd" class="text" tabindex="2"/>
+ 					&nbsp;&nbsp;&nbsp;
+                 	<input type="checkbox" name="visi" id="viewpwd"/>
+                    <label class="v">显示密码字符</label><br/>
+                    <div class="clr"></div>
+            </div>
+           
+	        <div class="label"><b class="s">*</b>确认密码：</div>
+	        <div class="fi">
+        		<input type="password" name="pwd2" class="text" tabindex="3"/>
+<br/><div class="clr"></div>
+	        </div>
+ 
+			<div class="label"><b class="s">*</b>邮箱：</div>
+		    <div class="fi">
+            	<input type="text" name="mail" class="text" tabindex="4" onFocus="inMail()" onBlur="outMail()"/>
+            	<label id="mail_ok" class="ok"><img src="ok.jpg" width=17px height=16px/></label>
+				&nbsp;&nbsp;&nbsp;
+                <label class="v">免费邮箱：</label>
+				<a href="">搜狐</a> 
+				<a href="">网易</a><br/>
+		        <div id="mail_mess" class="clr">请输入正确的邮箱地址</div>
+			</div>
+ 
+		    <div class="label">推荐人用户名：</div>
+		    <div class="fi">
+       	<input type="text" name="referrer" class="text" 
+value="可不填" tabindex="5"/>
+<br/>
+            	<div class="clr"></div>
+            </div>
+			<input type="button" class="btn-img" id="registsubmit" 
+value="同意以下协议，提交" tabindex="8"/>
+		</form>
+	</body>
+</html>

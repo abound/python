@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.3.1.min.js"></script>
+
+       
+    <script>
+            var btn=document.getElementsByTagName("button")[0];
+            btn.onclick=function(){
+                var input= document.getElementsByTagName("input")[0];
+                var text=input.value;
+                $("img").attr("src",text);
+            }
+     
+
+    </script>
+</head>
+<body>
+    <input type="button" >
+    <p><input type="text"></p>
+    <img  src="https://www.baidu.com/img/bd_logo1.png?where=super" alt="">
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.css" />
+    <link href="index1.css" rel="stylesheet">
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script>
+         
+          $(function(){
+                $(".bottom1").mCustomScrollbar();
+                $(".list_music").hover(function(){
+                    $(this).find(".list_menu").stop().fadeIn(100);
+                    $(this).find(".list_time a").stop().fadeOut(100);
+                    $(this).find(".list_time span").stop().fadeIn(100);
+                    
+                },function(){
+                     $(this).find(".list_menu").stop().fadeOut(100);
+                     $(this).find(".list_time a").stop().fadeIn(100);
+                     $(this).find(".list_time span").stop().fadeOut(100);
+                }); 
+                $(".list_check").click(function(){
+                    $(this).toggleClass("list_checked");
+                });
+                getPlayerList();
+                function getPlayerList(){
+                    $.ajax({
+                        url:"musiclist.xml",
+                        dataType:"xml",
+                        success:function(data){
+                            console.log(data);
+                        },
+                        error:function(e){
+                            console.log(e);
+                            
+                        }
+                    }
+                    );
+                }
+    
+    
+           });
+    </script>
+</head>
+<body>
+<div class="header">
+    <h1 class="logo"><a href="#"></a></h1>
+    <ol class="register">
+        <li>登陆</li>
+        <li>设置</li>
+    </ol>
+
+</div>
+
+<div class="content">
+    <div class="content_in">
+        <div class="content_L">
+            <div class="top1">
+                <a href="#">收藏</a>
+                <a href="#">添加到</a>
+                <a href="#">下载</a>
+                <a href="#">删除</a>
+                <a href="#">清空列表</a>
+
+            </div>
+            <div class="bottom1"data-mcs-theme="minimal-dark">
+                <ul>
+                    <li class="list_title">
+                       <div class="list_check"><input type="checkbox" class="select"></input></div> 
+                       <div class="list_number"></div>
+                       <div class="list_name">歌曲
+                           
+                       </div>
+                       <div class="list_singer">歌手</div>
+                       <div class="list_time">时长</div>
+                    </li>
+                    <li class="list_music">
+                        <div class="list_check"><input type="checkbox"class="select"></input></div> 
+                        <div class="list_number">2</div>
+                        <div class="list_name">绅士
+                            <div class="list_menu">
+                                <a href="#" title="播放"></a>
+                                <a href="#"title="添加"></a>
+                                <a href="#"title="下载"></a>
+                                <a href="#"title="分享到"></a>
+                            </div>
+                        </div>
+                        <div class="list_singer">薛之谦</div>
+                        <div class="list_time">
+                            <span>04:18</span>
+                            <a href="#" title="删除"></a>
+                        </div>
+                     </li>
+                     <li class="list_music">
+                            <div class="list_check"><input type="checkbox"class="select"></input></div> 
+                            <div class="list_number">2</div>
+                            <div class="list_name">绅士
+                                <div class="list_menu">
+                                    <a href="#" title="播放"></a>
+                                    <a href="#"title="添加"></a>
+                                    <a href="#"title="下载"></a>
+                                    <a href="#"title="分享到"></a>
+                                </div>
+                            </div>
+                            <div class="list_singer">薛之谦</div>
+                            <div class="list_time">
+                                <span>04:18</span>
+                                <a href="#" title="删除"></a>
+                            </div>
+                     </li>
+                    <li class="list_music">
+                                <div class="list_check"><input type="checkbox"class="select"></input></div> 
+                                <div class="list_number">2</div>
+                                <div class="list_name">绅士
+                                    <div class="list_menu">
+                                        <a href="#" title="播放"></a>
+                                        <a href="#"title="添加"></a>
+                                        <a href="#"title="下载"></a>
+                                        <a href="#"title="分享到"></a>
+                                    </div>
+                                </div>
+                                <div class="list_singer">薛之谦</div>
+                                <div class="list_time">
+                                    <span>04:18</span>
+                                    <a href="#" title="删除"></a>
+                                </div>
+                     </li>
+                    <li class="list_music">
+                        <div class="list_check"><input type="checkbox"class="select"></input></div> 
+                        <div class="list_number">2</div>
+                        <div class="list_name">绅士
+                            <div class="list_menu">
+                                <a href="#" title="播放"></a>
+                                <a href="#"title="添加"></a>
+                                <a href="#"title="下载"></a>
+                                <a href="#"title="分享到"></a>
+                            </div>
+                        </div>
+                        <div class="list_singer">薛之谦</div>
+                        <div class="list_time">
+                            <span>04:18</span>
+                            <a href="#" title="删除"></a>
+                        </div>
+                     </li>
+                    <li class="list_music">
+                        <div class="list_check"><input type="checkbox"class="select"></input></div> 
+                        <div class="list_number">2</div>
+                        <div class="list_name">绅士
+                            <div class="list_menu">
+                                <a href="#" title="播放"></a>
+                                <a href="#"title="添加"></a>
+                                <a href="#"title="下载"></a>
+                                <a href="#"title="分享到"></a>
+                            </div>
+                        </div>
+                        <div class="list_singer">薛之谦</div>
+                        <div class="list_time">
+                            <span>04:18</span>
+                            <a href="#" title="删除"></a>
+                        </div>
+                        </li>
+                    <li class="list_music">
+                            <div class="list_check"><input type="checkbox"class="select"></input></div> 
+                            <div class="list_number">2</div>
+                            <div class="list_name">绅士
+                                <div class="list_menu">
+                                    <a href="#" title="播放"></a>
+                                    <a href="#"title="添加"></a>
+                                    <a href="#"title="下载"></a>
+                                    <a href="#"title="分享到"></a>
+                                </div>
+                            </div>
+                            <div class="list_singer">薛之谦</div>
+                            <div class="list_time">
+                                <span>04:18</span>
+                                <a href="#" title="删除"></a>
+                            </div>
+                        </li>
+                    <li class="list_music">
+                        <div class="list_check"><input type="checkbox"class="select"></input></div> 
+                        <div class="list_number">2</div>
+                        <div class="list_name">绅士
+                            <div class="list_menu">
+                                <a href="#" title="播放"></a>
+                                <a href="#"title="添加"></a>
+                                <a href="#"title="下载"></a>
+                                <a href="#"title="分享到"></a>
+                            </div>
+                        </div>
+                        <div class="list_singer">薛之谦</div>
+                        <div class="list_time">
+                            <span>04:18</span>
+                            <a href="#" title="删除"></a>
+                        </div>
+                        </li>
+                    <li class="list_music">
+                        <div class="list_check"><input type="checkbox"class="select"></input></div> 
+                        <div class="list_number">2</div>
+                        <div class="list_name">绅士
+                            <div class="list_menu">
+                                <a href="#" title="播放"></a>
+                                <a href="#"title="添加"></a>
+                                <a href="#"title="下载"></a>
+                                <a href="#"title="分享到"></a>
+                            </div>
+                        </div>
+                        <div class="list_singer">薛之谦</div>
+                        <div class="list_time">
+                            <span>04:18</span>
+                            <a href="#" title="删除"></a>
+                        </div>
+                        </li>
+                    <li class="list_music">
+                        <div class="list_check"><input type="checkbox"class="select"></input></div> 
+                        <div class="list_number">2</div>
+                        <div class="list_name">绅士
+                            <div class="list_menu">
+                                <a href="#" title="播放"></a>
+                                <a href="#"title="添加"></a>
+                                <a href="#"title="下载"></a>
+                                <a href="#"title="分享到"></a>
+                            </div>
+                        </div>
+                        <div class="list_singer">薛之谦</div>
+                        <div class="list_time">
+                            <span>04:18</span>
+                            <a href="#" title="删除"></a>
+                        </div>
+                        </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content_R">
+            <div class="song_info">
+                <a href="#" class="song_info_pic">
+                    <img src="xuezhiqian.png" alt="">
+                </a>
+                <div class="song_info_name">歌曲名称：
+                    <a href="">从零玩转编程开发</a>
+                </div>
+                <div class="song_info_name">歌手：
+                        <a href="">薛之谦</a>
+                    </div>
+                <div class="song_info_name">专辑名：
+                        <a href="">从零玩转系列</a>
+                    </div>
+            </div>
+            <ul class="song_lyric">
+                <li class="cur">第一天</li>
+                <li>第一条</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="footer_in">
+        <a href="#" class="music_pre"></a>
+        <a href="#" class="music_play music_play2"></a>
+        <a href="#" class="music_next"></a>
+        <div class="music_progress_info">
+            <div class="music_progress_top">
+                <span class="music_progress_name">从零玩转编程/李南江</span>
+                <span class="music_progress_time"> 00:00/04:00</span>
+            </div>
+            <div class="music_progress_bar">
+                <div class="music_progress_line">
+                    <div class="music_progress_dot"></div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="music_mode music_mode2 music_mode3 music_mode4"></a>
+        <a href="#" class="music_fav music_fav2"></a>
+        <a href="#" class="music_down"></a>
+        <a href="#" class="music_comment"></a>
+        <a href="#" class="music_only music_only2"></a>
+        <div class="music_voice_info">
+            <a href="#" class="music_voice_icon"></a>
+            <div class="music_voice_bar">
+                <div class="music_voice_line">
+                    <div class="music_voice_dot"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mask_bg"></div>
+<div class="mask"></div>
+</body>
+</html>

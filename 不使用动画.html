@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="animate.css-master/animate.css">
+    <!-- 入场 bounceIn duration 设置动画时长 离场 bounceOut -->
+    <script src="vue.min.js"></script>
+    <style>
+        /* 这是一个时间点，是在进入之前，元素的起始状态，此时还没有开始进入 */
+        /* .v-enter,
+
+        
+        /*是动画离开之后，离开的终止状态，此时动画已经结束了*/
+        /* .v-leave-to{
+            opacity: 0;
+            transform: translateX(150px);
+        }
+        .v-enter-active,
+        .v-leave-active{
+            transition:  all 0.4s ease;
+        } */ 
+        
+
+
+
+        .my-enter,
+
+        
+        /*是动画离开之后，离开的终止状态，此时动画已经结束了*/
+        .my-leave-to{
+            opacity: 0;
+            transform: translateY(150px);
+        }
+        .my-enter-active,
+        .my-leave-active{
+            transition:  all 0.4s ease;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="toggle" @click="flag=!flag">
+        <!-- //使用过度类名 -->
+        <transition enter-active-class="animated bounceIn"
+         leave-active-class="animated bounceOut" :duration="{enter:200,leave:400}">
+            <h3 v-if="flag">这是一个H3</h3>
+        </transition>
+
+
+        <hr>
+        <input type="button" value="toggle2" @click="flag2=!flag2">
+        <transition name="my" >
+                <h3 v-if="flag2">这是一个H3</h3>
+            </transition>
+       
+    </div>
+    <script>
+        var vm=new Vue ({
+            el:'#app', 
+            data:{
+                flag:false,
+                flag2:false
+            },
+            methods:{},
+     });
+    </script>
+</body>
+</html>

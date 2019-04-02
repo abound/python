@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.min.js"></script>
+    <style>
+        .ball{
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: red;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="快到碗里来" @click="flag=!flag">
+
+
+        <transition
+        @before-enter="beforeEnter"
+        @enter="enter"
+        @after-enter="afterEnter">
+        <div class="ball" v-show="flag"></div>
+        </transition>
+   
+
+    </div>
+        <script>
+                var vm=new Vue ({
+                    el:'#app', 
+                    data:{
+                        flag:false
+                    },
+                    methods:{
+                        //注意：动画钩子函数的第一个参数：el,表示要执行动画的nageDom元素，是个原生的JS dom对象
+                        //可以认为document.getElementById('') 方式获取的JS dom对象
+                        beforeEnter(el){
+                            //设置小球的起始位置
+                            el.style.transform="translate(0,0)";
+                        },
+                        //表示动画开始之后的样式  
+                        enter(el,done){
+                            //
+                            el.offsetWidth;
+                            el.style.transform="translate(150px,450px)";
+                            el.style.transition='all 1s ease';
+
+                            done();
+                        },
+                        afterEnter(el){
+                            
+                            this.flag =! this.flag;
+                        }
+                    }
+             });
+            </script>
+</body>
+</html>

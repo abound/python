@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+      <div id="app">
+        <mycom2></mycom2>
+    </div>
+    <template id="temp1">
+        <div>
+            <h1></h1>
+            <h4>好的不错</h4>
+        </div>
+    </template>
+    <script>
+
+        // Vue.component('mycom2',{
+        //     template:'<h3>这是使用Vue..component创建出来的组件</h3>'
+        // })
+        Vue.component('mycom2',{
+            template: '#temp1'
+        })
+        var vm=new Vue ({
+            el:'#app', 
+            data:{},
+            methods:{},
+     });
+    </script>
+</body>
+</html>

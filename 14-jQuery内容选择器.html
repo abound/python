@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            height: 100px;
+            width: 50px;
+            background: red;
+            margin-top:5px;
+        }
+    </style>
+     <span class="span" name="it666"></span>
+    <script>
+        $(function(){
+
+            //找到既没有文本内容，也没有子元素的指定元素
+            var $div=$("div:empty");
+            //找到有文本内容，或有子元素的指定元素
+            var $div=$("div:parent");
+
+            //找到包含指定文本内容的指定元素
+            var $div=$("div:contain('我是div')");
+            
+            //找到包含指定后代元素的指定元素;
+            var $div=$("div:has('span')");
+            
+
+        });
+    </script>
+</head>
+<body>
+    <div>我是div1</div>
+    <div>我是div1</div>
+    <div>我是div1</div>
+    <div>我是div1</div>
+    <div><span></span></div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.3.1.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 300px;
+            height: 450px;
+            margin:50px auto;
+            border: 1px solid #000; 
+
+        }
+        .box>h1{
+            font-size: 20px;
+            line-height: 35px;
+            color: red;
+            padding-left: 10px;
+            border-bottom: 1px dashed #ccc; 
+        }
+        ol>li{
+          
+            list-style: none;
+            padding: 5px 10px;
+            border: 1px dashed #ccc;
+        }
+        ol>li:nth-child(-n+3) span{
+            background: deeppink;
+        }
+        ol>li>span{
+            display: inline-block;
+            height: 20px;
+            width: 20px;
+            line-height: 20px;
+            text-align: center;
+            margin-left: 5px;
+            background-color: blanchedalmond;
+        }
+        .content>img{
+            width: 80px;
+            height: 120px;
+            float: left;
+           
+        }
+        .content{
+            margin-top: 5px;
+            overflow: hidden;
+        }
+        .content>p{
+            float: right;
+            width: 120px;
+            width: 180px;
+            font-size: 12px;
+            line-height: 20px;
+            
+        }
+        .current .content{
+            display: none;
+        }
+    </style>
+    <script>
+          $(function(){
+               
+            $("li").mouseover(function(){
+                $(this).removeClass("current")
+
+            })
+            $("li").mouseout(function(){
+                $(this).addClass("current")
+
+            })
+
+         
+                
+    
+           });
+    </script>
+</head>
+<body>
+    <div class="box">
+        <h1>电影排行榜</h1>
+        <ol>
+            <li class="current"><span>1</span>电影名称
+                <div class="content">
+                        <img src="zl.png">
+                        <p>《战狼》是由吴京自导自演，余男、斯科特·阿特金斯等中外当红明星主演的军事动作片。
+                            影片耗资近亿多元，故事环环相扣；步步紧逼；华丽视觉。主打，动作，冒险，硬汉，战争等
+                        </p>
+                 </div>
+            </li>
+            <li><span>2</span>电影名称</li>
+            <li><span>3</span>电影名称</li>
+            <li><span>4</span>电影名称</li>
+            <li><span>5</span>电影名称</li>
+        </ol>
+    </div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.3.1.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 440px;
+            height: 298px;
+            border: 1px solid #000;
+            margin: 50px auto;
+        }
+        .nav>li{
+           
+            
+            height: 50px;
+            width: 110px;
+            line-height: 50px;
+            text-align: center;
+             
+            background:aquamarine; 
+            list-style: none;
+            display: inline-block;
+        }
+        .a{
+            margin-left: -5px;
+        }
+       
+        .content>li{
+            list-style: none;
+        }
+        .show{
+            display: none;
+        }
+        .nav>.current{
+            background-color: azure;
+        }
+    </style>
+    <script>
+          $(function(){
+                $(".nav>li").mouseenter(function(){
+                    $(this).addClass("current");
+                    $(this).siblings().removeClass("current");
+                    var ret=$(this).index();
+                    var $li=$(".content>li").eq(ret);
+                    $li.removeClass("show");
+                    $li.siblings().addClass("show");
+                    
+                })
+                // $(".nav>li").mouseout(function(){
+                //     $(this).removeClass("current");
+                //     var ret=$(this).index();
+                    
+                //     $(".content>li").eq(ret).addClass("show");
+                //     $("content>li").eq(ret).siblings().removeClass("show");
+                // })
+    
+    
+           });
+    </script>
+</head>
+<body>
+    <div class="box">
+        <ul class="nav">
+            <li class="current">h3</li>
+            <li class="a">jquert</li>
+            <li class="a">c语言</li>
+            <li class="a">goyuyan</li>
+
+        </ul>
+        <ui class="content">
+            <li class="">文章一</li>
+            <li class="show">文章二</li>
+            <li class="show">文章三</li>
+            <li class="show">文章四</li>
+        </ui>
+
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .nav{
+        height: 200px;
+        width: 200px;
+        background: red;
+        display: none;
+    }
+    </style>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+          $(function(){
+            $("button").eq(0).click(function(){
+                    $(".nav").fadeIn(1000);
+
+
+            });
+            $("button").eq(1).click(function(){
+                $(".nav").fadeOut(1000);
+
+
+                
+            });
+            $("button").eq(2).click(function(){
+
+                $(".nav").fadeToggle(1000);
+                
+            });
+            $("button").eq(3).click(function(){
+
+                $(".nav").fadeIn(1000,0.2);
+                            
+            });
+           
+    
+    
+           });
+    </script>
+</head>
+<body>
+   <button>淡入</button>
+   <button>淡出</button>
+   <button>切换</button>
+   <button>切入到</button>
+
+   <div class="nav"></div>
+</body>
+</html>
